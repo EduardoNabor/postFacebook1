@@ -1,0 +1,336 @@
+public class Interfaz extends javax.swing.JFrame {
+
+    private static String appId;
+    private static String appSecret;
+    private static String accessToken;
+    String[] tablaParaPost;
+    ResponseList<Post> listaDePublicaciones;
+    PagableList<Comment> comentariosDeMisPost;
+    facebook4j.Facebook facebook;
+    
+    
+    public Interfaz() {
+        initComponents();
+        appId = "701669269965658";
+        appSecret = "8dbfa99497a7dc9b86f3bfc2d6d61876";
+        accessToken = "CAACEdEose0cBAD2ZCKDqyZBSdB4OXzgfunnPt5SOuI8hxZCwg12KZAW4Atdn3SiiWrKd5HmiaBiVtZBwHn0Y6rd0EHBZAfoLt026BMcvLDQ9rgZBaFoBMIYMhUOfHn0elBqW6Y61V6cIE2edSRHWP4ZCcgYZBZCTGDheC1VzWFhujyF273UrELiQXeRG7IgOb2dZBPxA1pj7jIIRwZDZD";
+        facebook = new FacebookFactory().getInstance();
+        tablaParaPost = new String[1];
+        cuadroComentarios.setLineWrap(true);
+        
+        try {
+            // TODO add your handling code here:
+            facebook.setOAuthAppId(appId, appSecret);
+            facebook.setOAuthPermissions("ads_management, ads_read, read_friendlists, create_event, create_note, email, export_stream, read_stream, user_friends, friends_about_me, friends_actions.books, friends_actions.music, friends_actions.news, friends_actions.video, friends_activities, friends_birthday, friends_education_history, friends_events, friends_games_activity, friends_groups, friends_hometown, friends_interests, friends_likes, friends_location, friends_notes, friends_online_presence, friends_photo_video_tags, friends_photos, friends_questions, friends_relationship_details, friends_relationships, friends_religion_politics, friends_status, friends_subscriptions, friends_videos, friends_website, friends_work_history, manage_friendlists, manage_notifications, manage_pages, photo_upload, publish_actions, publish_stream, read_friendlists, read_insights, read_mailbox, read_page_mailboxes, read_requests, read_stream, rsvp_event, share_item, sms, status_update, user_about_me, user_actions.books, user_actions.music, user_actions.news, user_actions.video, user_activities, user_birthday, user_education_history, user_events, user_friends, user_games_activity, user_groups, user_hometown, user_interests, user_likes, user_location, user_notes, user_online_presence, user_photo_video_tags, user_photos, user_questions, user_relationship_details, user_relationships, user_religion_politics, user_status, user_subscriptions, user_videos, user_website, user_work_history, user_posts, video_upload, xmpp_login");
+            facebook.setOAuthAccessToken(new AccessToken(accessToken, null));
+            informacionPersonalUsuario();
+        } catch (FacebookException ex) {
+            //Logger.getLogger(FacebookApp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            //Logger.getLogger(FacebookApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    
+    public Interfaz(String id, String secret, String token) {
+        initComponents();
+        this.appId = id;
+        this.appSecret = secret;
+        this.accessToken = token;facebook = new FacebookFactory().getInstance();
+        tablaParaPost = new String[1];
+        cuadroComentarios.setLineWrap(true);
+        
+        try {
+            // TODO add your handling code here:
+            facebook.setOAuthAppId(appId, appSecret);
+            facebook.setOAuthPermissions("ads_management, ads_read, read_friendlists, create_event, create_note, email, export_stream, read_stream, user_friends, friends_about_me, friends_actions.books, friends_actions.music, friends_actions.news, friends_actions.video, friends_activities, friends_birthday, friends_education_history, friends_events, friends_games_activity, friends_groups, friends_hometown, friends_interests, friends_likes, friends_location, friends_notes, friends_online_presence, friends_photo_video_tags, friends_photos, friends_questions, friends_relationship_details, friends_relationships, friends_religion_politics, friends_status, friends_subscriptions, friends_videos, friends_website, friends_work_history, manage_friendlists, manage_notifications, manage_pages, photo_upload, publish_actions, publish_stream, read_friendlists, read_insights, read_mailbox, read_page_mailboxes, read_requests, read_stream, rsvp_event, share_item, sms, status_update, user_about_me, user_actions.books, user_actions.music, user_actions.news, user_actions.video, user_activities, user_birthday, user_education_history, user_events, user_friends, user_games_activity, user_groups, user_hometown, user_interests, user_likes, user_location, user_notes, user_online_presence, user_photo_video_tags, user_photos, user_questions, user_relationship_details, user_relationships, user_religion_politics, user_status, user_subscriptions, user_videos, user_website, user_work_history, user_posts, video_upload, xmpp_login");
+            facebook.setOAuthAccessToken(new AccessToken(accessToken, null));
+            informacionPersonalUsuario();
+        } catch (FacebookException ex) {
+            //Logger.getLogger(FacebookApp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            //Logger.getLogger(FacebookApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
+    /**
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        panelImage1 = new org.edisoncor.gui.panel.PanelImage();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        contenidoPost = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        publicacion = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        cuadroComentarios = new javax.swing.JTextArea();
+        nombre = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        edad = new javax.swing.JTextField();
+        relacion = new javax.swing.JTextField();
+        genero = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        fotoUsuario = new javax.swing.JLabel();
+        foto = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/b4c684a579fb6e89fe8cfa93462607d5.jpg"))); // NOI18N
+
+        contenidoPost.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        contenidoPost.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contenidoPostMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(contenidoPost);
+
+        publicacion.setColumns(20);
+        publicacion.setRows(5);
+        jScrollPane2.setViewportView(publicacion);
+
+        cuadroComentarios.setColumns(20);
+        cuadroComentarios.setRows(5);
+        jScrollPane3.setViewportView(cuadroComentarios);
+
+        nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreActionPerformed(evt);
+            }
+        });
+
+        email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Bienvenido");
+
+        jButton2.setText("Correo");
+
+        jButton3.setText("Edad:");
+
+        jButton4.setText("Relacion");
+
+        jButton5.setText("Genero:");
+
+        fotoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Facebook_Logo-19.gif"))); // NOI18N
+        fotoUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Imagen", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        foto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Imagen", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Listado de Post");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Comentarios:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Titulo de la publicacion");
+
+        javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
+        panelImage1.setLayout(panelImage1Layout);
+        panelImage1Layout.setHorizontalGroup(
+            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelImage1Layout.createSequentialGroup()
+                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelImage1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                                .addComponent(nombre)
+                                .addComponent(edad))
+                            .addComponent(genero, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(relacion, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelImage1Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(fotoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelImage1Layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(foto, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelImage1Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+                                .addComponent(jScrollPane2))
+                            .addComponent(jLabel3))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE))
+                .addGap(54, 54, 54))
+        );
+        panelImage1Layout.setVerticalGroup(
+            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelImage1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelImage1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelImage1Layout.createSequentialGroup()
+                        .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(foto, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelImage1Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelImage1Layout.createSequentialGroup()
+                                    .addComponent(fotoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(38, 38, 38)
+                                    .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton1))
+                                    .addGap(44, 44, 44)
+                                    .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButton2)
+                                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelImage1Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton3)
+                                    .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton4)
+                                    .addComponent(relacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton5)
+                                    .addComponent(genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(128, 128, 128))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 220, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>                        
+public void informacionPersonalUsuario() throws FacebookException, MalformedURLException, IOException {
+    
+           
+        User cuentaLocalFacebook = facebook.getMe();
+
+        nombre.setText(cuentaLocalFacebook.getName());
+        genero.setText(cuentaLocalFacebook.getGender());
+        email.setText(cuentaLocalFacebook.getEmail());
+        edad.setText(cuentaLocalFacebook.getBirthday());
+        relacion.setText(cuentaLocalFacebook.getRelationshipStatus());
+        DefaultTableModel tablaDePost = new DefaultTableModel();
+        tablaDePost.addColumn("Listado De Publicaciones Mas Actuales");
+        listaDePublicaciones = facebook.getFeed(facebook.getMe().getId(), new Reading().limit(25));
+        for (int i = 0; i < listaDePublicaciones.size(); i++) {
+            // Get (string) message.
+            tablaParaPost[0] = listaDePublicaciones.get(i).getMessage();
+            tablaDePost.addRow(tablaParaPost);
+            contenidoPost.setModel(tablaDePost);
+        }
+
+    }//end of informacionPersonalUsuario
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // TODO add your handling code here:
+    }                                     
+
+    private void contenidoPostMouseClicked(java.awt.event.MouseEvent evt) {                                           
+        // TODO add your handling code here:
+        for (int k = 0; k < listaDePublicaciones.size(); k++) {
+            if (contenidoPost.getSelectedRow() == k) {
+                Post misPublicaciones = listaDePublicaciones.get(k);
+                publicacion.setText(misPublicaciones.getMessage());
+                comentariosDeMisPost = listaDePublicaciones.get(k).getComments();
+                for (int l=0; l<comentariosDeMisPost.size(); l++){
+                    cuadroComentarios.setText(cuadroComentarios.getText() + comentariosDeMisPost.get(l).getMessage()  + "\n");
+                }
+                ImageIcon image;
+                if (listaDePublicaciones.get(k).getPicture() != null) {
+                    System.out.println("url: " + listaDePublicaciones.get(k).getPicture());
+                    
+            }
+        }
+    }                                          
+
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        // TODO add your handling code here:
+    }                                      
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Interfaz().setVisible(true);
+            }
+        });
+    }
